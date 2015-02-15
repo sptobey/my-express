@@ -1,0 +1,19 @@
+extends layout.jade
+
+block content
+    br
+    h3(style='text-align: left')= "UCDD II Repositories"
+    table
+        thead
+            tr
+                th Reopository
+                th URL
+        tbody
+            each repo in repos
+                tr
+                    td 
+                        div.twelve.columns
+                            a(href='/repos/view/' + repo.id)= repo.name
+                    td
+                        div.twelve.columns
+                            a(href=repo.html_url)= repo.html_url

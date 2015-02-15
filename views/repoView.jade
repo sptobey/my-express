@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    br
+    h3(style='text-align: left')
+        = "Repository: "
+        b= repo.name
+    
+    div.row
+        div.two.columns
+            b= "Owner: "
+        div.ten.columns
+            a(href=repo.owner.html_url)= repo.owner.login
+    div.row
+        div.two.columns
+            b= "Description: "
+        div.ten.columns
+            if(repo.description == "")
+                = "(not available)"
+            else
+                = repo.description
+    div.row
+        div.two.columns
+            b= "URL: "
+        div.ten.columns
+            a(href=repo.html_url)= repo.html_url
+    div.row
+        div.two.columns
+            b= "Date Created : "
+        div.ten.columns
+            = repo.created_at

@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    if(event)
+        br
+        h3(style='text-align: left')
+            b= event.type
+        
+        div.row
+            div.two.columns
+                b= "User(actor): "
+            div.ten.columns
+                = event.actor.login
+        div.row
+            div.two.columns
+                b= "Original User: "
+            div.ten.columns
+                = event.org.login
+        div.row
+            div.two.columns
+                b= "Repo Info: "
+            div.ten.columns
+                a(href=event.repo.url)= event.repo.name
+        div.row
+            div.two.columns
+                b= "Date Created : "
+            div.ten.columns
+                = event.created_at
+    else 
+        br
+        h3= "Error: event does not exist"

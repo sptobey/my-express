@@ -1,0 +1,23 @@
+extends layout.jade
+
+block content
+    br
+    h3(style='text-align: left')= "UCDD II Events"
+    table
+        thead
+            tr
+                th Type
+                th User
+                th Date
+        tbody
+            each event in events
+                tr
+                    td 
+                        div.twelve.columns
+                            a(href='/events/view/' + event.id)= event.type
+                    td
+                        div.twelve.columns
+                            =event.actor.login
+                    td
+                        div.twelve.columns
+                            =event.created_at
